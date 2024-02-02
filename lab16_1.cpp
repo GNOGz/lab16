@@ -36,7 +36,7 @@ int main(){
 void showData(double *dPtr , int N , int M){
     cout << fixed << setprecision(2);
     for(int i = 0; i < N*M ; i++){
-        cout << *(*(dPtr+N)+M);
+        cout << dPtr[i];
         if( (i+1)%M == 0) cout << endl;
         else cout << " ";
     }
@@ -55,6 +55,19 @@ void findRowSum(const double *a,double *b,int N,int M){
 
 	for(int i = 0 ;i < N ; i++){
 		for(int j = i*M ; j < M+(i*M) ; j++ ){
+			b[i] += a[j];
+		}
+	}
+}
+
+void findColSum(const double *a,double *b,int N,int M){
+
+	for(int i = 0 ;i < M ; i++){
+		b[i] = 0;
+	}
+
+	for(int i = 0 ;i < M ; i++){
+		for(int j = i ; j < (N*M) ; j += M ){
 			b[i] += a[j];
 		}
 	}
