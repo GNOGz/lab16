@@ -52,7 +52,10 @@ void findRowSum(const double *a,double *b,int N,int M){
 	for(int i = 0 ;i < N ; i++){
 		b[i] = 0;
 	}
-	for(int i = 0 ;i < N*M ; i++){
-		b[i] += a[i]
+
+	for(int i = 0 ;i < N ; i++){
+		for(int j = i*M ; j < M+(i*M) ; j++ ){
+			b[i] += a[j];
+		}
 	}
 }
